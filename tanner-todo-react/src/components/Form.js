@@ -5,7 +5,7 @@ function Form(props) {
   const [name, setName] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // blocks default click handling
     if (!name.trim()) {
       return;
     }

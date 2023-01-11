@@ -1,19 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 import { nanoid } from "nanoid";
 
-
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
-  
-  
+
   function addTask(name) {
-    const newTask = { id: `todo-${nanoid()}`, name, completed: false};
+    const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
   }
 
+  /* 
+    if the task id has the same id as the edited task
+      use an object spread to make a new object
+      whose `completed` prop has been inverted
+  */
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map((task) => {
+      if (id === task.id) {
+        return { ...task, completed: !task.completed };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  }
 
   const taskList = tasks.map((task) => (
     <Todo
@@ -21,16 +33,17 @@ function App(props) {
       name={task.name}
       completed={task.completed}
       key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
     />
   ));
 
-  const taskNoun = taskList.length !== 1 ? 'tasks' : 'task'
+  const taskNoun = taskList.length !== 1 ? "tasks" : "task";
   const headingText = `${taskList.length} tasks remaining`;
 
   return (
     <div className="todoapp stack-large">
       <h1>Tanner's Todo List</h1>
-      <Form addTask={addTask}/>
+      <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
         <FilterButton />
         <FilterButton />
