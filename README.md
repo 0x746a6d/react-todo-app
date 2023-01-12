@@ -14,5 +14,5 @@ A simple todo app written with react to learn the "framework".
 - Add another page that you can start a grocery list or something more specific
 <br>
 <br>
-![image](todoexample.png)
+![image](react-todo-app/todoexample.png)
 
