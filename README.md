@@ -1,4 +1,4 @@
-# react-todo-app
+# React Todo App
 A simple todo app written with react to learn the "framework".
 
 ## Basic Features
@@ -14,5 +14,6 @@ A simple todo app written with react to learn the "framework".
 - Add another page that you can start a grocery list or something more specific
 <br>
 <br>
-![image](react-todo-app/todoexample.png)
 
+
+![todoexample](https://user-images.githubusercontent.com/53584026/212144480-224aa831-13fc-4f47-a0c4-76a7643d2882.png)
