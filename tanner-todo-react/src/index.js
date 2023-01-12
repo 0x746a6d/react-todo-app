@@ -5,9 +5,10 @@ import App from './App';
 
 
 const DATA = [
-  { id: "todo-0", name: "Eat", completed: true },
+  // test data, un-block to see on initial load
+  /* { id: "todo-0", name: "Eat", completed: true },
   { id: "todo-1", name: "Sleep", completed: false },
-  { id: "todo-2", name: "Repeat", completed: false }
+  { id: "todo-2", name: "Repeat", completed: false } */
 ];
 
 ReactDOM.render(
