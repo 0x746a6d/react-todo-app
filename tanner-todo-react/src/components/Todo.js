@@ -9,7 +9,7 @@ export default function Todo(props) {
   }
 
   function handleSubmit(e) {
-    e.preventDefualt();
+    e.preventDefault();
     props.editTask(props.id, newName);
     setNewName("");
     setEditing(false);
