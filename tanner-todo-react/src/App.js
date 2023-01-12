@@ -11,6 +11,30 @@ function App(props) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
   }
+  /* 
+    delete a todo from the apps state and visually
+      create a new array to pass to setTasks holding what is left
+  */
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter((task) => id !== task.id);
+    setTasks(remainingTasks);
+  }
+
+  /*
+    takes an id to find target object
+    has newName property for updating objects
+      uses .map. to return a new array with some changes, 
+      rather that deleting something from the array
+  */
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map((task) => {
+      if (id === task.id) {
+        return {...task,  name: newName}
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
+  }
 
   /* 
     if the task id has the same id as the edited task
@@ -34,6 +58,8 @@ function App(props) {
       completed={task.completed}
       key={task.id}
       toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
+      editTask={editTask}
     />
   ));
 
